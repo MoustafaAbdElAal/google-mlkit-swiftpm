@@ -8,10 +8,10 @@ let package = Package(
   products: [
     .library(
       name: "MLKitBarcodeScanning",
-      targets: ["MLKitBarcodeScanning", "MLImage", "MLKitVision"]),
+      targets: ["MLKitBarcodeScanning", "MLImage", "MLKitVision", "Common"]),
     .library(
       name: "MLKitFaceDetection",
-      targets: ["MLKitFaceDetection", "MLImage", "MLKitVision"]),
+      targets: ["MLKitFaceDetection", "MLImage", "MLKitVision", "Common"]),
   ],
   dependencies: [
     .package(url: "https://github.com/google/promises.git", exact: "2.4.0"),
@@ -79,5 +79,25 @@ let package = Package(
       url:
         "https://github.com/d-date/google-mlkit-swiftpm/releases/download/6.0.0/GoogleUtilitiesComponents.xcframework.zip",
       checksum: "f34db62a980a77f68ee1ccb995edffdf5e68a758a521cdcd203bff5efb2d1722"),
+    .target(
+      name: "Common",
+      dependencies: [
+        "MLKitCommon",
+        "GoogleToolboxForMac",
+        "GoogleUtilitiesComponents",
+        .product(name: "GULAppDelegateSwizzler", package: "GoogleUtilities"),
+        .product(name: "GULEnvironment", package: "GoogleUtilities"),
+        .product(name: "GULISASwizzler", package: "GoogleUtilities"),
+        .product(name: "GULLogger", package: "GoogleUtilities"),
+        .product(name: "GULMethodSwizzler", package: "GoogleUtilities"),
+        .product(name: "GULNSData", package: "GoogleUtilities"),
+        .product(name: "GULNetwork", package: "GoogleUtilities"),
+        .product(name: "GULReachability", package: "GoogleUtilities"),
+        .product(name: "GULUserDefaults", package: "GoogleUtilities"),
+        .product(name: "GTMSessionFetcher", package: "gtm-session-fetcher"),
+        .product(name: "GoogleDataTransport", package: "GoogleDataTransport"),
+        .product(name: "nanopb", package: "nanopb"),
+        .product(name: "FBLPromises", package: "promises"),
+      ]),
   ]
 )
