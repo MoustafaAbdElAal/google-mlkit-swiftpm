@@ -8,10 +8,10 @@ let package = Package(
   products: [
     .library(
       name: "MLKitBarcodeScanning",
-      targets: ["MLKitBarcodeScanning", "MLImage", "MLKitVision", "MLKitCommon"]),
+      targets: ["MLKitBarcodeScanning", "MLImage", "MLKitVision"]),
     .library(
       name: "MLKitFaceDetection",
-      targets: ["MLKitFaceDetection", "MLImage", "MLKitVision", "MLKitCommon"]),
+      targets: ["MLKitFaceDetection", "MLImage", "MLKitVision"]),
   ],
   dependencies: [
     .package(url: "https://github.com/google/promises.git", exact: "2.4.0"),
